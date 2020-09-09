@@ -71,5 +71,11 @@ class SchoolController extends Controller
         DB::table('Course')->insert(['course'=>$courseName,'resource'=>$resource, 'unit'=>$unit, 'duration'=>$duration]);
         return Redirect('/course');
     }
+    //delete course
+    public function deletecourse(Request $request){
+        $id = $request->route('id');
+        DB::table('Course')->where('id',$id)->delete();
+        return redirect('/course');
+    }
 
 }

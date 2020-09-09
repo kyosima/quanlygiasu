@@ -1,5 +1,10 @@
 @extends('layout')
 @section('content')
+<script type="text/javascript">
+    function confirm_delete() {
+      return confirm('are you sure?');
+    }
+    </script>
     <input id="hddmainId" type="hidden" value="">
     <div class="" style="padding: 5px 0px;">
 
@@ -8,7 +13,7 @@
         <div class="table-title">
             <span onclick="window.history.back()" class="fs1 btn-left" aria-hidden="true" data-icon="J"></span>
             course information
-            <span onclick="del()" class="fs1 btn-right" aria-hidden="true" data-icon=""></span>
+        <a href="{{URL::to('deletecourse/'.$result->id)}}" onclick="return confirm('Are you sure to delete this Course?')"><span class="fs1 btn-right" aria-hidden="true" data-icon=""></span></a>
                             </div>
             <form action="" method="POST">
             {{ csrf_field() }}

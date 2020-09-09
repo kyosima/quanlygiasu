@@ -24,7 +24,7 @@
             <td>{{$values->unit}}</td>
             <td>{{$values->resource}}</td>
             <td>{{$values->duration}}</td>
-            <td><a href="course_edit/{{$values->id}}">Edit</a></td>
+            <td><a href="course_edit/{{$values->id}}">Edit or Delete</a></td>
             </tr>
                 @endforeach
 
