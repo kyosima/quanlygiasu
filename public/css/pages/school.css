@@ -1,0 +1,77 @@
+@CHARSET "UTF-8";
+.col-school-inf {
+	width: 35%;
+	float: left;
+}
+.separater {
+	float: left;
+	width: 100%;
+	height: 10px;
+}
+.col-school-inf-label {
+	width: 35%;
+	float: left;
+	padding-left: 5px;
+	font-weight: bolder;
+	border-right: 1px double #CCC;
+	background-color: #dff0d8;
+}
+.col-school-inf-data {
+	width: 65%;
+	float: left;
+	padding-left: 5px;
+	background-color: #d9edf7;
+	border-right: 1px double #CCC;
+}
+.col-school-log {
+	position: relative;
+	width: 65%;
+	float: left;	
+}
+.sub-header {
+	padding-left: 5px;
+	font-weight: bold;
+	background-color: #2d4259;
+	color: white;
+	border: 1px double #123;
+}
+.school-log-row {
+	line-height: 25px;
+	vertical-align: middle;
+	padding-left: 5px;
+	font-size: 15px;
+}
+.sch_btn {
+	margin-top: 3px;
+	height: 25px;
+	padding: 3px 12px;
+}
+.group-add {
+	position: absolute;
+	top: 128px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.col-school-inf-label {
+    width: 35%;
+    float: left;
+    padding-left: 5px;
+    font-weight: bolder;
+    border-right: 1px double #CCC;
+    background-color: #dff0d8;
+}
+/* overload */
+.table-col {
+	height: 25px;
+	line-height: 25px;
+}
+@media (max-width: 768px) {
+	.col-school-inf {width: 100%}
+	.col-school-log {width: 100%}
+	.sub-header.col-school-log {display: none;}
+	.col-school-inf {max-height: 63px;overflow: hidden;}
+}
+@media (max-width: 400px) {
+	
+}

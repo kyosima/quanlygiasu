@@ -1,0 +1,114 @@
+@CHARSET "UTF-8";
+/* css for search group */
+.left {float: left;}
+.search-row {
+	width: 100%;
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 5px;
+}
+.search-date {
+	width: 50%;
+	float: left;
+}
+.date-type {
+	width: 35%;
+	float: left;
+}
+.by-month, .by-date {
+	width: 60%;
+	float: left;
+}
+#dateFrom, #dateTo {
+	width: 90px;
+}
+.search-note {
+	width: 50%;
+	float: left;
+}
+#cmbSchool, #cmbTa, #cmbTe {min-width: 20%}
+#txtClass, #txtRoom, #cboDay {
+	width: 100px;
+}
+/* under search*/
+.table {
+	font-size: 14px;
+}
+.table-row {line-height: 20px;}
+.row-header .table-col {
+	height: 40px;
+	line-height: 40px;
+}
+.row-header .col-note-te, 
+.row-header .col-note-school
+{
+	line-height: 18px;
+}
+.row_cancel {
+	background-color: #C02F1D;
+	color: white;
+}
+.row_cancel .btn-right {color: white;}
+.col-check {
+	width: 2%;
+	text-align: center;
+	
+}
+.col-date {
+	width: 7%;
+	text-align: center;
+}
+.col-school {width: 10%;}
+.col-from, .col-to {width: 4%;}
+.col-te, .col-ta {width: 10%;}
+.col-class, .col-room {width: 5%}
+.col-book {width: 12%;}
+.col-note-te, .col-note-school {width: 9%}
+
+.col-status {
+	width: 4%;
+	text-align: center;
+}
+.col-status input, .col-check input {margin-top: 13px;}
+.col-action {
+	width: 9%;
+	text-align: center;
+	cursor: pointer;
+}
+.col-action span {margin-top: 9px;}
+.input-group {
+	margin-bottom: 5px;
+	margin-top: 3px;
+}
+.input-group .form-control {
+	margin-top: 0px;
+}
+/* for print*/
+.table-col {
+    overflow: visible;
+    height: auto; 
+     white-space: normal; 
+}
+
+.chk_del {
+	color: #e60000;
+}
+/*
+@media (max-width: 768px) {
+	.col-date, .col-from-to {	width: 27%;}
+	.col-school {	width: 46%;}
+	.col-course {
+		width: 100%; 
+		font-weight: 600;
+		padding-left: 5px;
+	}
+	.col-book, .col-action {width: 100%; padding-left: 5px;}
+	.col-teacher, .col-status {padding-left: 5px;}
+	.col-teacher, .col-ta, .col-status {width: 33.33%}
+	.table-col {height: 25px;line-height: 25px}
+	
+}
+@media (max-width: 400px) {
+	
+}
+*/
