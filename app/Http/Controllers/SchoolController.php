@@ -78,4 +78,27 @@ class SchoolController extends Controller
         return redirect('/course');
     }
 
+    //School
+    public function school(Request $request){
+        if ($request->session()->has('username')){
+
+            return view('school');
+        }
+        else{
+            return Redirect('/');
+        }
+    }
+
+
+    //Evaluation
+    public function evaluation(Request $request){
+        if ($request->session()->has('username')){
+
+            return view('evaluation');
+        }
+        else{
+            return Redirect('/');
+        }
+    }
+
 }

@@ -33,6 +33,11 @@ Route::post('/addcourse', 'SchoolController@postaddcourse');
 
 Route::get('/deletecourse/{id}', 'SchoolController@deletecourse');
 
+Route::get('/school', 'SchoolController@school');
+
+Route::get('/evaluation', 'SchoolController@evaluation');
+
+
 
 
 

@@ -117,7 +117,7 @@
                 <div class="fs1" aria-hidden="true" data-icon=""></div>
                 <div class="item-text">Schedule</div>
             </div>
-                            <div class="menu-item" onclick="openPage('{{URL::to('school')}}'))">
+                            <div class="menu-item" onclick="openPage('{{URL::to('school')}}')">
                 <div class="fs1" aria-hidden="true" data-icon=""></div>
                 <div class="item-text">School list</div>
             </div>
