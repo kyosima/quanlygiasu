@@ -5,8 +5,13 @@
 <div>
     <div class="table-title">
         course list
-    <span onclick="openPage('{{URL::to('addcourse')}}')" class="fs1 btn-right" aria-hidden="true" data-icon="l"></span>
+    <a href="{{URL::to('addcourse')}}"><span onclick="openPage('')" class="fs1 btn-right" aria-hidden="true" data-icon="l"></span></a>
     </div>
+    <script>
+        $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+    </script>
     <table id="example" class="table table-striped table-bordered table-striped" style="width:100%">
         <thead>
             <tr>

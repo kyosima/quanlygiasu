@@ -21,6 +21,8 @@ Route::get('/logout', 'HomeController@logout');
 
 Route::get('/school_schedule', 'SchoolController@school_schedule');
 
+//course
+
 Route::get('/course', 'SchoolController@course');
 
 Route::get('/course_edit/{id}', 'SchoolController@editcourse');
@@ -33,16 +35,47 @@ Route::post('/addcourse', 'SchoolController@postaddcourse');
 
 Route::get('/deletecourse/{id}', 'SchoolController@deletecourse');
 
+
+
+//school
+
 Route::get('/school', 'SchoolController@school');
+
+Route::get('/school-edit/{id}', 'SchoolController@editschool');
+
+Route::post('/school-edit/{id}', 'SchoolController@posteditschool');
+
+Route::get('/deleteschool/{id}', 'SchoolController@deleteschool');
+
+Route::get('/addschool', 'SchoolController@addschool');
+
+Route::post('/addschool', 'SchoolController@postaddschool');
+
+
+
+
+
+
+
+
+//evaluation
 
 Route::get('/evaluation', 'SchoolController@evaluation');
 
 
+//Teacher
 
+Route::get('/teacher', 'TeacherController@teacher');
 
+Route::get('/addteacher', 'TeacherController@addteacher');
 
+Route::post('/addteacher', 'TeacherController@postaddteacher');
 
+Route::get('/teacher/{id}', 'TeacherController@editteacher');
 
+Route::post('/teacher/{id}', 'TeacherController@posteditteacher');
+
+Route::get('/deleteteacher/{id}', 'TeacherController@deleteteacher');
 
 
 

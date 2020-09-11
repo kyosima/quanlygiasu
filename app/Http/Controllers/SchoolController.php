@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
-session_start();
 use Illuminate\Support\Facades\Auth;
+
+
+session_start();
 class SchoolController extends Controller
 {
     //school_schedule
@@ -81,12 +83,61 @@ class SchoolController extends Controller
     //School
     public function school(Request $request){
         if ($request->session()->has('username')){
-
-            return view('school');
+            $school = DB::table('School_list')->get();
+            return view('school',['school'=>$school]);
         }
         else{
             return Redirect('/');
         }
+    }
+
+    public function editschool(Request $request){
+        $id = $request->route('id');
+        if ($request->session()->has('username')){
+            $school = DB::table('School_list')->where('id',$id)->first();
+            return view('edit_school',['school'=>$school]);
+        }
+        else{
+            return Redirect('/');
+        }
+    }
+
+    public function posteditschool(Request $request){
+        $id = $request->route('id');
+        $name = $request->input('Nameschool');
+        $prodate = $request->input('Prodate');
+        $staff = $request->input('Staffname');
+        $schooltype = $request->input('Schooltype');
+        $district = $request->input('District');
+        $follow = $request->input('Followup');
+        DB::table('School_list')->where('id',$id)->update(['name'=>$name, 'prodate'=>$prodate, 'staffname'=>$staff, 'schooltype'=>$schooltype, 'district'=>$district, 'followup'=>$follow]);
+        return redirect('/school');
+    }
+
+    public function deleteschool(Request $request){
+        $id = $request->route('id');
+        DB::table('School_list')->where('id',$id)->delete();
+        return redirect('/school');
+    }
+
+    public function addschool(Request $request){
+        if ($request->session()->has('username')){
+
+            return view('add_school');
+        }
+        else{
+            return Redirect('/');
+        }
+    }
+    public function postaddschool(Request $request){
+        $name = $request->input('Nameschool');
+        $prodate = $request->input('Prodate');
+        $staff = $request->input('Staffname');
+        $schooltype = $request->input('Schooltype');
+        $district = $request->input('District');
+        $follow = $request->input('Followup');
+        DB::table('School_list')->insert(['name'=>$name, 'prodate'=>$prodate, 'staffname'=>$staff, 'schooltype'=>$schooltype, 'district'=>$district ,'followup'=> $follow]);
+        return redirect('/school');
     }
 
 
@@ -100,5 +151,6 @@ class SchoolController extends Controller
             return Redirect('/');
         }
     }
+
 
 }
