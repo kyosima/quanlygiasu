@@ -7,9 +7,15 @@
     <div class="table">
         <div class="table-title">
             <span onclick="window.history.back()" class="fs1 btn-left" aria-hidden="true" data-icon="J"></span>
-            edit teacher
-        <a href="{{URL::to('deleteteacher/'.$teacher->id)}}"><span class="fs1 btn-right" aria-hidden="true" data-icon=""></span></a>
-                            </div>
+            @if($type == "editteacher")
+                edit teacher
+                <a href="{{URL::to('deleteteacher/teacher/'.$teacher->id)}}"><span class="fs1 btn-right" aria-hidden="true" data-icon=""></span></a>
+            @else
+                edit teacher assistant
+                <a href="{{URL::to('deleteteacher/assistant/'.$teacher->id)}}"><span class="fs1 btn-right" aria-hidden="true" data-icon=""></span></a>
+            @endif
+            </div>
+
             <form action="" method="POST">
             {{ csrf_field() }}
             <div class="form-group">

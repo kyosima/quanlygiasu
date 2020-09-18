@@ -7,7 +7,11 @@
     <div class="table">
         <div class="table-title">
             <span onclick="window.history.back()" class="fs1 btn-left" aria-hidden="true" data-icon="J"></span>
-            add teacher
+            @if($type == "teacher")
+                add teacher
+            @else
+                add teacher assistant
+            @endif
                             </div>
             <form action="" method="POST">
             {{ csrf_field() }}

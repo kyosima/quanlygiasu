@@ -21,7 +21,7 @@ class TeacherController extends Controller
 
     public function addteacher(Request $request){
         if ($request->session()->has('username')){
-            return view('add_teacher');
+            return view('add_teacher',['type'=>$request->type]);
         }
         else{
             return Redirect('/');
@@ -35,15 +35,25 @@ class TeacherController extends Controller
         $language = $request->input('language');
         $status = $request->input('status');
         $intro = $request->input('intro');
-        DB::table('Teachers')->insert(['username'=>$username, 'fullname'=>$fullname, 'email'=>$email, 'phone'=>$phone, 'language'=>$language, 'status'=>$status, 'intro'=>$intro]);
-        return redirect('/teacher');
+        if($request->type == "teacher"){
+            DB::table('Teachers')->insert(['username'=>$username, 'fullname'=>$fullname, 'email'=>$email, 'phone'=>$phone, 'language'=>$language, 'status'=>$status, 'intro'=>$intro]);
+            return redirect('/teacher');
+        }else{
+            DB::table('Teachers_assistant')->insert(['username'=>$username, 'fullname'=>$fullname, 'email'=>$email, 'phone'=>$phone, 'language'=>$language, 'status'=>$status, 'intro'=>$intro]);
+            return redirect('/teacher-assistant');
+        }
     }
 
     public function editteacher(Request $request){
         $id = $request->route('id');
         if($request->session()->has('username')){
-        $teacher = DB::table('Teachers')->where('id',$id)->first();
-        return view('edit_teacher',['teacher'=>$teacher]);
+            if($request->type == "editteacher"){
+                $teacher = DB::table('Teachers')->where('id',$id)->first();
+                return view('edit_teacher',['teacher'=>$teacher, 'type' => $request->type]);
+            }else{
+                $teacher_assistant = DB::table('Teachers_assistant')->where('id',$id)->first();
+                return view('edit_teacher',['teacher'=>$teacher_assistant, 'type' => $request->type]);
+            }
         }
         else{
             return Redirect('/');
@@ -58,13 +68,33 @@ class TeacherController extends Controller
         $language = $request->input('language');
         $status = $request->input('status');
         $intro = $request->input('intro');
-        DB::table('Teachers')->where('id',$id)->update(['username'=>$username, 'fullname'=>$fullname, 'email'=>$email, 'phone'=>$phone, 'language'=>$language, 'status'=>$status, 'intro'=>$intro]);
-        return redirect('/teacher');
+        if($request->type == "editteacher"){
+            DB::table('Teachers')->where('id',$id)->update(['username'=>$username, 'fullname'=>$fullname, 'email'=>$email, 'phone'=>$phone, 'language'=>$language, 'status'=>$status, 'intro'=>$intro]);
+            return redirect('/teacher/editteacher/'.$id);
+        }else{
+            DB::table('Teachers_assistant')->where('id',$id)->update(['username'=>$username, 'fullname'=>$fullname, 'email'=>$email, 'phone'=>$phone, 'language'=>$language, 'status'=>$status, 'intro'=>$intro]);
+            return redirect('/teacher/editassistant/'.$id);
+        }
     }
     public function deleteteacher(Request $request){
         $id = $request->route('id');
-        DB::table('Teachers')->where('id',$id)->delete();
-        return redirect('/teacher');
+        if($request->type == "teacher"){
+            DB::table('Teachers')->where('id',$id)->delete();
+            return redirect('/teacher');
+        }else{
+            DB::table('Teachers_assistant')->where('id',$id)->delete();
+            return redirect('/teacher-assistant');
+        }
+    }
+    //teacher_assistant
+    public function teacher_assistant(Request $request){
+        if ($request->session()->has('username')){
+            $teacher_assistant = DB::table('Teachers_assistant')->get();
+            return view('teacher_assistant',['teacher_assistant'=>$teacher_assistant]);
+        }
+        else{
+            return Redirect('/');
+        }
     }
 
 }

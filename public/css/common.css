@@ -1,5 +1,5 @@
 /*
- * all class need more than 1 page 
+ * all class need more than 1 page
  */
 @CHARSET "UTF-8";
 /* GENERAL - START */
@@ -7,6 +7,8 @@
 	margin:0;
 	padding:0;
 }
+
+
 body {
 	font-family: 'Tahoma';
 	font-size:16px;
@@ -71,7 +73,7 @@ textarea {
 	width:100%;
 	background-color: #FFF;
 }
-.logo {	
+.logo {
 	float: left;
 }
 .logo img {
@@ -118,7 +120,7 @@ textarea {
     text-align: center;
 }
 
-.header-button-cir {	
+.header-button-cir {
 	float:right;
 	margin: 0px 4px 0px 5px;
     width: 35px;
@@ -129,7 +131,7 @@ textarea {
     background: #0080ff;
     color: #FFF;
     cursor:pointer;
-    
+
 }
 .header-button-cir .fs1 {
 	margin-top: 4px;
@@ -142,10 +144,10 @@ textarea {
 
 .menu {
 	display:none;
-	position: absolute;	
+	position: absolute;
 	right: 0px;
 	padding-top: 10px;
-	top: 35px;	
+	top: 35px;
 	z-index: 5;
 	min-width: 200px;
 	max-width: 200px;
@@ -161,14 +163,14 @@ textarea {
 .menu-item {
 	float: left;
 	width: 100%;
-	
+
 	cursor: pointer;
 	color: #5A5A5A;
 	background: white;
 	border: 1px solid #dddddd;
 	border-bottom: 1px solid #ff0080;
 }
-.item-end {	
+.item-end {
 	border-bottom: none;
 }
 
@@ -231,7 +233,7 @@ textarea {
     background-image: linear-gradient(to bottom, #dc745e, #FF9900);
     -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
-	
+
 }
 
 .table-close {
@@ -308,7 +310,7 @@ textarea {
     margin-left: 10px;
 }
 .btn-right {
-	
+
 	float:right;
 	margin-right: 15px;
     font-size: 20px;
@@ -329,9 +331,9 @@ textarea {
 
 /* split page */
 .paging_section{
-	display: block; 
-	vertical-align: middle; 
-	width: 100%; 
+	display: block;
+	vertical-align: middle;
+	width: 100%;
 	padding: 5px;
 	margin-top: 15px;
 	margin-bottom:10px;
@@ -364,7 +366,7 @@ textarea {
 	color: white;
 	background-color: #5cb85c;
 	border-color: #4cae4c;
-	
+
 }
 .paging_active {
 	padding-top: 5px;
@@ -407,7 +409,7 @@ textarea {
 @media (max-width: 768px) {
 	.mobile_only {display: inline-block;}
 	.pc_only {display: none;}
-	
+
 	.table {
 		width:100%;
 		margin-right: 0px;

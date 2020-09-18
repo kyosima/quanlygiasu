@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="{{asset('public/css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('public/css/elegant_font.css')}}">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=latin,vietnamese">
-<link rel="stylesheet" href="{{asset('public/css/common.css?id=1')}}">
+<link rel="stylesheet" href="{{asset('public/css/common.css')}}">
 
 <script src="{{asset('public/js/jquery.min.js')}}"></script>
 <script src="{{asset('public/js/bootstrap.min.js')}}"></script>
@@ -22,15 +22,27 @@
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 <link rel="stylesheet" href="https://cdn.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+<script src="https://cdn.datatables.net/searchpanes/1.1.1/js/dataTables.searchPanes.min.js">
+<script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js">
 <script>
     $(document).ready(function() {
     $('#example').DataTable();
 } );
 </script>
 <style>
+    .toolbar-teacher{
+        width: 100%;
+    }
+
     .table-striped>tbody>tr:nth-of-type(odd) {
     background-color: #d9ecf7;
-}
+    }
+    .dataTables_length, .dataTables_filter{
+        display: none;
+    }
+    .edit:hover{
+        text-decoration: underline;
+    }
     .login-button {
     display: block;
     width: 100%;

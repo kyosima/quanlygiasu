@@ -4,19 +4,19 @@
 
 <div>
     <div class="table-title">
-        teacher list
-        <a href="{{URL::to('addteacher/teacher')}}"><span onclick="openPage('')" class="fs1 btn-right" aria-hidden="true" data-icon="l"></span></a>
+        teacher assistant list
+        <a href="{{URL::to('addteacher/assistant')}}"><span onclick="openPage('')" class="fs1 btn-right" aria-hidden="true" data-icon="l"></span></a>
     </div>
     <script>
         $(document).ready(function() {
-            var table = $('#teacher-table').DataTable({
+            var table = $('#teacher-ass-table').DataTable({
                 "order": [[ 1, "desc" ]],
                 "oLanguage": {
                     "sInfo": "Showing _START_ to _END_ of _TOTAL_ items."
                 }
 
             });
-            $("#teacher-table .th-fill").each( function ( i ) {
+            $("#teacher-ass-table .th-fill").each( function ( i ) {
                     var select = $('<select class="form-control"><option value="">--select--</option></select>')
                         .appendTo( $(this).empty() )
                         .on( 'change', function () {
@@ -49,7 +49,7 @@
         </div>
     </div>
     <div style="width:100%;">
-        <table id="teacher-table" class="table table-striped table-bordered table-striped" style="width:100%;">
+        <table id="teacher-ass-table" class="table table-striped table-bordered table-striped" style="width:100%;">
             <thead>
                 <tr>
                     <th class="th-fill">Fullname</th>
@@ -69,8 +69,8 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($teacher as $value)
-                    <tr class="edit" onclick="location.href='{{url::to('teacher/editteacher/'.$value->id)}}'">
+                @foreach ($teacher_assistant as $value)
+                    <tr class="edit" onclick="location.href='{{url::to('teacher/editassistant/'.$value->id)}}'">
                         <td>{{$value->fullname}}</td>
                         <td>{{$value->username}}</td>
                         <td>{{$value->phone}}</td>

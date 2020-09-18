@@ -64,18 +64,19 @@ Route::get('/evaluation', 'SchoolController@evaluation');
 
 
 //Teacher
-
 Route::get('/teacher', 'TeacherController@teacher');
 
-Route::get('/addteacher', 'TeacherController@addteacher');
+//Teacher_assistant
+Route::get('/teacher-assistant', 'TeacherController@teacher_assistant');
 
-Route::post('/addteacher', 'TeacherController@postaddteacher');
+//Dùng cho teacher + teacher_assistant
+Route::get('/deleteteacher/{type}/{id}', 'TeacherController@deleteteacher');
 
-Route::get('/teacher/{id}', 'TeacherController@editteacher');
+Route::get('/addteacher/{type}', 'TeacherController@addteacher');
+Route::post('/addteacher/{type}', 'TeacherController@postaddteacher');
 
-Route::post('/teacher/{id}', 'TeacherController@posteditteacher');
-
-Route::get('/deleteteacher/{id}', 'TeacherController@deleteteacher');
-
+Route::get('/teacher/{type}/{id}', 'TeacherController@editteacher');
+Route::post('/teacher/{type}/{id}', 'TeacherController@posteditteacher');
+//
 
 
