@@ -19,7 +19,10 @@ Route::post('/', 'HomeController@postlogin');
 
 Route::get('/logout', 'HomeController@logout');
 
-Route::get('/school_schedule', 'SchoolController@school_schedule');
+//SchoolShedule
+Route::get('/school_schedule', 'SchoolScheduleController@school_schedule');
+
+Route::get('/add_schoolschedule', 'SchoolScheduleController@add_schoolschedule');
 
 //course
 
@@ -55,9 +58,6 @@ Route::post('/addschool', 'SchoolController@postaddschool');
 
 
 
-
-
-
 //evaluation
 
 Route::get('/evaluation', 'SchoolController@evaluation');
@@ -73,10 +73,40 @@ Route::get('/teacher-assistant', 'TeacherController@teacher_assistant');
 Route::get('/deleteteacher/{type}/{id}', 'TeacherController@deleteteacher');
 
 Route::get('/addteacher/{type}', 'TeacherController@addteacher');
+
 Route::post('/addteacher/{type}', 'TeacherController@postaddteacher');
 
 Route::get('/teacher/{type}/{id}', 'TeacherController@editteacher');
+
 Route::post('/teacher/{type}/{id}', 'TeacherController@posteditteacher');
-//
 
+//Resource
+Route::get('/resource', 'ResourceController@resource');
 
+Route::get('/addresource', 'ResourceController@addresource');
+
+Route::post('/addresource', 'ResourceController@postaddresource');
+
+Route::get('/resource/editresource/{id}', 'ResourceController@editresource');
+
+Route::post('/resource/editresource/{id}', 'ResourceController@posteditresource');
+
+Route::get('/resource/deleteresource/{id}', 'ResourceController@deleteresource');
+
+//District
+Route::get('/district', 'DistrictController@district');
+
+Route::post('district/adddistrict', 'DistrictController@postadddistrict');
+
+Route::get('/district/deletedistrict/{id}', 'DistrictController@deletedistrict');
+
+Route::post('district/updatedistrict', 'DistrictController@updatedistrict');
+
+//SchoolType
+Route::get('/schooltype', 'SchoolTypeController@schooltype');
+
+Route::post('schooltype/addschooltype', 'SchoolTypeController@postaddschooltype');
+
+Route::get('/schooltype/deleteschooltype/{id}', 'SchoolTypeController@deleteschooltype');
+
+Route::post('schooltype/updateschooltype', 'SchoolTypeController@updateschooltype');

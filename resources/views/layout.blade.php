@@ -30,7 +30,28 @@
 } );
 </script>
 <style>
-    .toolbar-teacher{
+    .form-group-child{
+        padding: 0 5px;
+    }
+    .form-group-note textarea{
+        width: 100%;
+    }
+    .form-group-course, .form-group-date, .form-group-teacher, .form-group-note{
+        padding: 3px;
+        display: table !important;
+        width: 100% !important;
+        border-bottom: 1px dashed #ddd;
+    }
+    .form-group-date .form-group-child{
+
+        display: table-cell;
+        width: 33.33%;
+    }
+    .form-group-course .form-group-child, .form-group-teacher .form-group-child, .form-group-note .form-group-child{
+        display: table-cell;
+        width: 50%;
+    }
+    .toolbar-table{
         width: 100%;
     }
 
@@ -108,19 +129,40 @@
                     <div class="item-text">Teacher</div>
                 </div>
             </a>
-
+        <a href="{{url::to('teacher-assistant')}}">
             <div class="menu-item" onclick="openPage('staff.php?type=2')">
                 <div class="fs1" aria-hidden="true" data-icon=""></div>
                 <div class="item-text">Teacher Assistant</div>
             </div>
+        </a>
             <div class="menu-item" onclick="openPage('staff_report.php')">
                 <div class="fs1" aria-hidden="true" data-icon=""></div>
                 <div class="item-text">Staff Report</div>
             </div>
-            <div class="menu-item" onclick="openPage('resource.php')">
+        <a href="{{url::to('resource')}}">
+            <div class="menu-item">
                 <div class="fs1" aria-hidden="true" data-icon=""></div>
                 <div class="item-text">Resource</div>
             </div>
+        </a>
+        <a href="{{URL::to('course')}}">
+            <div class="menu-item">
+                <div class="fs1" aria-hidden="true" data-icon=""></div>
+                <div class="item-text">Course</div>
+            </div>
+        </a>
+        <a href="{{URL::to('district')}}">
+            <div class="menu-item">
+                <div class="fs1" aria-hidden="true" data-icon=""></div>
+                    <div class="item-text">District</div>
+            </div>
+        </a>
+        <a href="{{URL::to('schooltype')}}">
+            <div class="menu-item">
+                <div class="fs1" aria-hidden="true" data-icon=""></div>
+                    <div class="item-text">School type</div>
+            </div>
+        </a>
 
         </div>
     </div>
@@ -139,12 +181,7 @@
                 <div class="item-text">School list</div>
             </div>
         </a>
-        <a href="{{URL::to('course')}}">
-            <div class="menu-item">
-                <div class="fs1" aria-hidden="true" data-icon=""></div>
-                <div class="item-text">Course</div>
-            </div>
-        </a>
+
             <a href="{{URL::to('evaluation')}}">
                 <div class="menu-item item-end" >
                     <div class="fs1" aria-hidden="true" data-icon="Z"></div>

@@ -106,12 +106,56 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            var table = $('#schedule-table').DataTable({
+            });
+        });
 
-    <div class="table">
-        <div class="table-title">
+    </script>
+    <div class="table-title">
             SCHOOL SCHEDULE
-                            </div>
-        <div id="mainList" class="table-body">There is no record match with your search condition!</div>
+            <a href="{{URL::to('add_schoolschedule')}}"><span onclick="openPage('')" class="fs1 btn-right" aria-hidden="true" data-icon="l"></span></a>
+    </div>
+    <div style="width:100%;">
+        <table id="schedule-table" class="table table-striped table-bordered table-striped" style="width:100%;">
+            <thead>
+                <tr>
+                    <th><input type="checkbox"/></th>
+                    <th>Date</th>
+                    <th>School</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Teacher</th>
+                    <th>Teacher Assistant</th>
+                    <th>Class</th>
+                    <th>Room</th>
+                    <th>Book</th>
+                    <th>Note(Teacher)</th>
+                    <th>Note(School )</th>
+                    <th>Cancel</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($schoolschedule as $value)
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>{{$value->date}}</td>
+                        <td>{{$value->school}}</td>
+                        <td>{{$value->from}}</td>
+                        <td>{{$value->to}}</td>
+                        <td>{{$value->teacher}}</td>
+                        <td>{{$value->teacher_assistant}}</td>
+                        <td>{{$value->class}}</td>
+                        <td>{{$value->room}}</td>
+                        <td>{{$value->book}}</td>
+                        <td>{{$value->note_teacher}}</td>
+                        <td>{{$value->note_school}}</td>
+                        <td>{{$value->status}}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
 @endsection

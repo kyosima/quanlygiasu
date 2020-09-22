@@ -14,7 +14,7 @@ class HomeController extends Controller
     //
     public function login(Request $request){
         if ($request->session()->has('username')) {
-            return view('school_schedule');
+            return redirect('/school_schedule');
         }
         else{
             return view('login');
