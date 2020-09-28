@@ -30,13 +30,31 @@
 } );
 </script>
 <style>
+    .form-group-react .form-group-child{
+        display: table-cell;
+        width: 50%;
+    }
+    .form-group-user-teacher-school .form-group-child-left{
+        display: table-cell;
+        width: 80%;
+    }
+
+    .form-group-user-teacher-school .form-group-child-right{
+        display: table-cell;
+        padding-left: 5px;
+        width: 20%;
+    }
+    .schedule-status input, .schedule-check input{
+        margin: auto;
+        height: unset !important;
+    }
     .form-group-child{
         padding: 0 5px;
     }
     .form-group-note textarea{
         width: 100%;
     }
-    .form-group-course, .form-group-date, .form-group-teacher, .form-group-note{
+    .form-group-react, .form-group-user-teacher-school, .form-group-school, .form-group-course, .form-group-date, .form-group-teacher, .form-group-note{
         padding: 3px;
         display: table !important;
         width: 100% !important;
@@ -47,7 +65,7 @@
         display: table-cell;
         width: 33.33%;
     }
-    .form-group-course .form-group-child, .form-group-teacher .form-group-child, .form-group-note .form-group-child{
+    .form-group-school .form-group-child, .form-group-course .form-group-child, .form-group-teacher .form-group-child, .form-group-note .form-group-child{
         display: table-cell;
         width: 50%;
     }

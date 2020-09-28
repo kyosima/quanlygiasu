@@ -1,3 +1,4 @@
+
 @extends('layout')
 @section('content')
     <input id="hddmainId" type="hidden" value="">
@@ -16,7 +17,7 @@
                 <div class="form-group">
                     <div class="form-group-child">
                         <label for="">Tag</label>
-                        <input type="text" class="form-control" name="tag" id="" value="" >
+                        <input type="text" class="form-control" name="tag" id="" value="{{$schoolschedule->tag}}" >
                     </div>
                 </div>
                 <hr>
@@ -24,15 +25,15 @@
                 <div class="form-group form-group-date">
                     <div class="form-group-child">
                         <label for="">Date</label>
-                    <input type="date" class="form-control" name="date" id="" value="" required>
+                    <input type="date" class="form-control" name="date" id="" value="{{$schoolschedule->date}}" required>
                     </div>
                     <div class="form-group-child">
                         <label for="">From</label>
-                        <input type="time" class="form-control" name="from" id="time-from" value="" required>
+                        <input type="time" class="form-control" name="from" id="time-from" value="{{$schoolschedule->from}}" required>
                     </div>
                     <div class="form-group-child">
                         <label for="">To</label>
-                        <input type="time" class="form-control" name="to" id="time-to" value="" required>
+                        <input type="time" class="form-control" name="to" id="time-to" value="{{$schoolschedule->to}}" required>
                     </div>
                 </div>
                 <script>
@@ -74,7 +75,7 @@
                     <div class="form-group-child">
                         <label for="">School</label>
                         <select id="" class="form-control" name="school">
-                            <option value=""></option>
+                            <option value="{{$schoolschedule->school}}">{{$schoolschedule->school}}</option>
                             @foreach($school as $value)
                                 <option value="{{$value->name}}">{{$value->name }}"</option>
                             @endforeach
@@ -82,7 +83,7 @@
                     </div>
                     <div class="form-group-child">
                         <label for="">Class</label>
-                        <input id="" class="form-control" name="class"/>
+                        <input id="" class="form-control" name="class" value="{{$schoolschedule->class}}"/>
                     </div>
                 </div>
 
@@ -91,15 +92,15 @@
                     <div class="form-group-child">
                         <label for="">Course</label>
                         <select id="" class="form-control" name="course">
-                            <option value=""></option>
+                            <option value="{{$schoolschedule->course}}">{{$schoolschedule->course}}</option>
                             @foreach($course as $value)
-                                <option value="{{$value->course}}">{{$value->course}}"</option>
+                                <option value="{{$value->course}}">{{$value->course}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group-child">
                         <label for="">Room</label>
-                        <input id="" class="form-control" name="room"/>
+                        <input id="" class="form-control" name="room" value="{{$schoolschedule->room}}"/>
                     </div>
                 </div>
 
@@ -108,7 +109,7 @@
                     <div class="form-group-child">
                         <label for="">Teacher</label>
                         <select id="" class="form-control" name="teacher">
-                            <option value=""></option>
+                            <option value="{{$schoolschedule->teacher}}">{{$schoolschedule->teacher}}</option>
                             @foreach($teachers as $value)
                                 <option value="{{$value->fullname}}">{{$value->fullname}}"</option>
                             @endforeach
@@ -117,7 +118,7 @@
                     <div class="form-group-child">
                         <label for="">Teacher Assistant</label>
                         <select id="" class="form-control" name="teacher_assistant">
-                            <option value=""></option>
+                            <option value="{{$schoolschedule->teacher_assistant}}">{{$schoolschedule->teacher_assistant}}</option>
                             @foreach($teachers_assistant as $value)
                                 <option value="{{$value->fullname}}">{{$value->fullname}}"</option>
                             @endforeach
@@ -130,12 +131,14 @@
                     <div class="form-group-child">
                         <label for="">Note(teacher)</label>
                         <textarea id="" name="note_teacher" rows="4" cols="35">
+                            {{$schoolschedule->note_teacher}}
                         </textarea>
 
                     </div>
                     <div class="form-group-child">
                         <label for="">Note(school)</label>
                         <textarea id="" name="note_school" rows="4" cols="35">
+                            {{$schoolschedule->note_school}}
                         </textarea>
                     </div>
                 </div>
@@ -144,8 +147,13 @@
                     <div class="form-group-child">
                         <label for="">Status</label>
                         <select id="" class="form-control" name="status">
-                            <option value="0">Cancel</option>
-                            <option value="1">On going</option>
+                            @if($schoolschedule->note_school == 0)
+                                <option value="0">Cancel</option>
+                                <option value="1">On going</option>
+                            @else
+                                <option value="1">On going</option>
+                                <option value="0">Cancel</option>
+                            @endif
                         </select>
                     </div>
                 </div>

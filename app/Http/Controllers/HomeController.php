@@ -34,7 +34,7 @@ class HomeController extends Controller
             $request->session()->put('messenger', 'Wrong username or password!');
             return Redirect('/');
         }
-        }
+    }
 
 
 

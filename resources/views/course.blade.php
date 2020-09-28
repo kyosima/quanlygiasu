@@ -9,11 +9,54 @@
     </div>
     <script>
         $(document).ready(function() {
-        $('#example').DataTable();
+            var table = $('#course-table').DataTable({
+                "order": [[ 0, "desc" ]],
+                "oLanguage": {
+                    "sInfo": "Showing _START_ to _END_ of _TOTAL_ items."
+                }
+
+            });
+            $("#course-table .th-fill").each( function ( i ) {
+                    var select = $('<select class="form-control"><option value="">--select--</option></select>')
+                        .appendTo( $(this).empty() )
+                        .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+
+                        table.column( i )
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+                    // Get the Status values a specific way since the status is a anchor/image
+
+                    table.column( i ).data().unique().sort().each( function ( d, j ) {
+                        select.append( '<option value="'+d+'">'+d+'</option>' );
+                    } );
+
+            } );
+            $('#searchInput').on( 'keyup', function () {
+                table.search( this.value).draw();
+            } );
     } );
+
     </script>
-    <table id="example" class="table table-striped table-bordered table-striped" style="width:100%">
+    <div class="toolbar-table">
+        <div class="search-bar">
+            <div class="form-group">
+                <input id="searchInput" class="form-control" placeholder="Search"/>
+            </div>
+        </div>
+    </div>
+    <table id="course-table" class="table table-striped table-bordered table-striped" style="width:100%">
         <thead>
+            <tr>
+                <th class="th-fill">Course</th>
+                <th class="th-fill">Unit</th>
+                <th class="th-fill">Resource</th>
+                <th class="th-fill">Duration(min)</th>
+                <th class="th-fill">Action</th>
+            </tr>
             <tr>
                 <th>Course</th>
                 <th>Unit</th>

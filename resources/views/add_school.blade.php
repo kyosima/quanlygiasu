@@ -22,25 +22,55 @@
             <input type="date" name="Prodate" id=""  required>
             </div>
             <div class="form-group">
-                <label for="">Staff Name</label>
-            <input type="text" name="Staffname" id="" required>
-            </div>
-            <div class="form-group">
                 <label for="">School Type</label>
-            <input type="text" name="Schooltype" id=""  required>
+                <select name="Schooltype" id="" >
+                    @foreach($schooltype as $value)
+                        <option value="{{$value->name}}">{{$value->name}}</option>
+                    @endforeach
+
+                </select>
             </div>
             <div class="form-group">
                 <label for="">District</label>
-            <input type="text" name="District" id=""  required>
+                <select name="District" id="" >
+                    @foreach($district as $value)
+                        <option value="{{$value->name}}">{{$value->name}}</option>
+                    @endforeach
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Status</label>
+                <select name="status" id="" >
+                    <option value="0">Not procesing yet</option>
+                    <option value="1">Procesing</option>
+                    <option value="2">Running</option>
+                    <option value="3">STOP</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Intro</label>
+            <textarea  name="intro" id="" cols="4" rows="5" >
+
+            </textarea>
             </div>
         </div>
     </div>
                 <div class="table table-right">
+        <div class="table-title">ASSIGNED USER</div>
+        <div class="form-group">
+            <select name="Staffname" id="" >
+                <option value=""></option>
+                @foreach($user as $value)
+                    <option value="{{$value->username}}">{{$value->username }}</option>
+                @endforeach
+            </select>
+        </div>
         <div class="table-title">FOLLOW-UP</div>
         <div class="table-body">
             <div class="form-group">
             <label for="">Content</label>
-            <textarea name="Followup" id="" cols="30" rows="10" value=""></textarea>
+            <textarea name="Followup" id="" cols="30" rows="10" value="" required></textarea>
             </div>
         </div>
     </div>

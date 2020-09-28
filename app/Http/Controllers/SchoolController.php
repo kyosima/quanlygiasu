@@ -12,16 +12,7 @@ use Illuminate\Support\Facades\Auth;
 session_start();
 class SchoolController extends Controller
 {
-    //school_schedule
-    public function school_schedule(Request $request){
-        if ($request->session()->has('username')){
-            return view('school_schedule');
-        }
-        else{
-            return Redirect('/');
-        }
 
-    }
     //Course
     public function course(Request $request){
 
@@ -95,7 +86,10 @@ class SchoolController extends Controller
         $id = $request->route('id');
         if ($request->session()->has('username')){
             $school = DB::table('School_list')->where('id',$id)->first();
-            return view('edit_school',['school'=>$school]);
+            $user = DB::table('users')->get();
+            $schooltype = DB::table('schooltype')->get();
+            $district = DB::table('district')->get();
+            return view('edit_school', ['school'=>$school, 'schooltype' => $schooltype, 'district' => $district, 'user'=>$user]);
         }
         else{
             return Redirect('/');
@@ -110,7 +104,9 @@ class SchoolController extends Controller
         $schooltype = $request->input('Schooltype');
         $district = $request->input('District');
         $follow = $request->input('Followup');
-        DB::table('School_list')->where('id',$id)->update(['name'=>$name, 'prodate'=>$prodate, 'staffname'=>$staff, 'schooltype'=>$schooltype, 'district'=>$district, 'followup'=>$follow]);
+        $intro = $request->input('intro');
+        $status = $request->input('status');
+        DB::table('School_list')->where('id',$id)->update(['name'=>$name, 'prodate'=>$prodate, 'staffname'=>$staff, 'schooltype'=>$schooltype, 'district'=>$district ,'followup'=> $follow, 'intro'=>$intro, 'status'=>$status]);
         return redirect('/school');
     }
 
@@ -122,8 +118,10 @@ class SchoolController extends Controller
 
     public function addschool(Request $request){
         if ($request->session()->has('username')){
-
-            return view('add_school');
+            $user = DB::table('users')->get();
+            $schooltype = DB::table('schooltype')->get();
+            $district = DB::table('district')->get();
+            return view('add_school', ['schooltype' => $schooltype, 'district' => $district, 'user'=>$user]);
         }
         else{
             return Redirect('/');
@@ -136,21 +134,14 @@ class SchoolController extends Controller
         $schooltype = $request->input('Schooltype');
         $district = $request->input('District');
         $follow = $request->input('Followup');
-        DB::table('School_list')->insert(['name'=>$name, 'prodate'=>$prodate, 'staffname'=>$staff, 'schooltype'=>$schooltype, 'district'=>$district ,'followup'=> $follow]);
+        $intro = $request->input('intro');
+        $status = $request->input('status');
+        DB::table('School_list')->insert(['name'=>$name, 'prodate'=>$prodate, 'staffname'=>$staff, 'schooltype'=>$schooltype, 'district'=>$district ,'followup'=> $follow, 'intro'=>$intro, 'status'=>$status]);
         return redirect('/school');
     }
 
 
-    //Evaluation
-    public function evaluation(Request $request){
-        if ($request->session()->has('username')){
 
-            return view('evaluation');
-        }
-        else{
-            return Redirect('/');
-        }
-    }
 
 
 }

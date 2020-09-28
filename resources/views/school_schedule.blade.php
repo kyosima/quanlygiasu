@@ -46,25 +46,6 @@
                 <div class="by-date hidden">
                     From: <input id="dateFrom" type="text">
                     To: <input id="dateTo" type="text">
-                    <script type="text/javascript">
-                    // add date picker
-                    $(function () {
-                        $('#dateFrom').datepicker(PICK_DATE_OPT);
-                        $('#dateTo').datepicker(PICK_DATE_OPT);
-                    });
-                    // function show view type
-                    function changeDateType() {
-                        $(".by-month").addClass("hidden");
-                        $(".by-date").addClass("hidden");
-                        dateType = $("#dateType").val();
-                        if (dateType == "1") {
-                            $(".by-month").removeClass("hidden");
-                        }
-                        if (dateType == "2") {
-                            $(".by-date").removeClass("hidden");
-                        }
-                    }
-                    </script>
                 </div>
             </div>
             <div class="search-note">
@@ -131,27 +112,42 @@
                     <th>Class</th>
                     <th>Room</th>
                     <th>Book</th>
-                    <th>Note(Teacher)</th>
-                    <th>Note(School )</th>
+                    <th>Note<br/>(Teacher)</th>
+                    <th>Note<br/>(School )</th>
                     <th>Cancel</th>
+                    <th>Action</th>
+
                 </tr>
             </thead>
             <tbody>
                 @foreach ($schoolschedule as $value)
                     <tr>
-                        <td><input type="checkbox"/></td>
-                        <td>{{$value->date}}</td>
+                        <td class="text-center schedule-check"><input type="checkbox"/></td>
+                        <td>{{date("d/m/Y",strtotime($value->date)) }}</td>
                         <td>{{$value->school}}</td>
-                        <td>{{$value->from}}</td>
-                        <td>{{$value->to}}</td>
+                        <td>{{date("h:i A",strtotime($value->from)) }}</td>
+                        <td>{{date("h:i A",strtotime($value->to))}}</td>
                         <td>{{$value->teacher}}</td>
                         <td>{{$value->teacher_assistant}}</td>
                         <td>{{$value->class}}</td>
                         <td>{{$value->room}}</td>
-                        <td>{{$value->book}}</td>
+                        <td>{{$value->book}}</td>s
                         <td>{{$value->note_teacher}}</td>
                         <td>{{$value->note_school}}</td>
-                        <td>{{$value->status}}</td>
+                        <td class="text-center schedule-status">
+                                @if($value->status == 0 )
+                                    <input type="checkbox" checked/>
+                                @else
+                                    <input type="checkbox"/>  
+                                @endif
+                        </td>
+                        <td>
+                            <div class=""> 	
+                                <a href="edit_schoolschedule/{{$value->id}}"><span class="fs1" aria-hidden="true" data-icon="j"></span></a>
+                                <a href="delete_schoolschedule/{{$value->id}}"><span class="fs1" aria-hidden="true" data-icon=""></span></a>
+                                <span class="fs1" aria-hidden="true" data-icon="b"></span>
+                            </div>   
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

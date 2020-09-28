@@ -24,6 +24,14 @@ Route::get('/school_schedule', 'SchoolScheduleController@school_schedule');
 
 Route::get('/add_schoolschedule', 'SchoolScheduleController@add_schoolschedule');
 
+Route::post('/add_schoolschedule', 'SchoolScheduleController@postadd_schoolschedule');
+
+Route::get('/edit_schoolschedule/{id}', 'SchoolScheduleController@edit_schoolschedule');
+
+Route::post('/edit_schoolschedule/{id}', 'SchoolScheduleController@postedit_schoolschedule');
+
+Route::get('/delete_schoolschedule/{id}', 'SchoolScheduleController@delete_schoolschedule');
+
 //course
 
 Route::get('/course', 'SchoolController@course');
@@ -60,7 +68,8 @@ Route::post('/addschool', 'SchoolController@postaddschool');
 
 //evaluation
 
-Route::get('/evaluation', 'SchoolController@evaluation');
+Route::get('/evaluation', 'EvaluationController@evaluation');
+Route::get('/add_evaluation', 'EvaluationController@add_evaluation');
 
 
 //Teacher
