@@ -4,13 +4,13 @@
 
 <div>
     <div class="table-title">
-        <span onclick="window.history.back();" class="fs1 btn-left" aria-hidden="true" data-icon="J"></span>
         Evaluation Form
-        <span onclick="insert()" class="fs1 btn-right" aria-hidden="true" data-icon=""></span>
     </div>
 
     <div class="table-body">
         <form action="" method="POST">
+            {{ csrf_field() }}
+
             <div class="form-group-user-teacher-school">
                 <div class="form-group-child-left">
                     <label for="">User</label>
@@ -18,67 +18,101 @@
                 </div>
                 <div class="form-group-child-right">
                     <label for="">Date</label>
-                    <input type="text" class="form-control" name="tag" id="" value="" >
+                    <input type="date" class="form-control" name="date" id="" value=""  required>
                 </div>
             </div>
             <div class="form-group-user-teacher-school">
                 <div class="form-group-child-left">
                     <label for="">Teacher</label>
-                    <input type="text" class="form-control" name="tag" id="" value="" >
+                    <select class="form-control" name="teacher" id="">
+                    @foreach($teachers as $value)
+                        <option value="{{$value->username}}">{{$value->username}}</option>
+                    @endforeach
+                    </select>
                 </div>
                 <div class="form-group-child-right">
                     <label for="">Time</label>
-                    <input type="text" class="form-control" name="tag" id="" value="" >
+                    <input type="time" class="form-control" name="time" id="" value="" required >
                 </div>
             </div>
             <div class="form-group-user-teacher-school">
                 <div class="form-group-child-left">
                     <label for="">School</label>
-                    <input type="text" class="form-control" name="tag" id="" value="" >
+                    <select class="form-control" name="school" id="">
+                        @foreach($schools as $value)
+                            <option value="{{$value->name}}">{{$value->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group-child-right">
                     <label for="">Class</label>
-                    <input type="text" class="form-control" name="tag" id="" value="" >
+                    <input type="text" class="form-control" name="class" id="" value="" required>
                 </div>
             </div>
             <div class="form-group-react">
                 <div class="form-group-child">
                     <label for="">Attire</label>
-                    <input type="text" class="form-control" name="tag" id="" value="" >
+                    <select class="form-control" name="attire" id="">
+                        <option value="0">Proper</option>
+                        <option value="1">Not Proper</option>
+                    </select>
                 </div>
                 <div class="form-group-child">
                     <label for="">Description</label>
-                    <input type="text" class="form-control" name="tag" id="" value="" >
+                    <input type="text" class="form-control" name="description" id="" value="" >
                 </div>
             </div>
             <div class="form-group-react">
                 <div class="form-group-child">
                     <label for="">Punctuality</label>
-                    <input type="text" class="form-control" name="tag" id="" value="" >
+                    <select class="form-control" name="punctuality" id="">
+                        <option value="0">On time</option>
+                        <option value="1">late</option>
+                    </select>
                 </div>
                 <div class="form-group-child">
                     <label for="">Assigned lessons</label>
-                    <input type="text" class="form-control" name="tag" id="" value="" >
+                    <select class="form-control" name="assignlessions" id="">
+                        <option value="0">Match perfectly</option>
+                        <option value="1">Match partially</option>
+                        <option value="2">Free style</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group-react">
                 <div class="form-group-child">
                     <label for="">Teaching preparation</label>
-                    <input type="text" class="form-control" name="tag" id="" value="" >
+                    <select class="form-control" name="teachingpreparation" id="" value="" >
+                        <option value="0">Excellent</option>
+                        <option value="1">Acceptable</option>
+                        <option value="2">Could imporove</option>
+                    </select>
                 </div>
                 <div class="form-group-child">
                     <label for="">Friendliness</label>
-                    <input type="text" class="form-control" name="tag" id="" value="" >
+                    <select class="form-control" name="friendliness" id="" value="" >
+                        <option value="0">Excellent</option>
+                        <option value="1">Acceptable</option>
+                        <option value="2">Could imporove</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group-react">
                 <div class="form-group-child">
                     <label for="">Applying fun activities</label>
-                    <input type="text" class="form-control" name="tag" id="" value="" >
+                    <select class="form-control" name="funactivities" id="" value="" >
+                        <option value="0">Excellent</option>
+                        <option value="1">Acceptable</option>
+                        <option value="2">Could imporove</option>
+                    </select>
                 </div>
                 <div class="form-group-child">
                     <label for="">Classroom atmosphere</label>
-                    <input type="text" class="form-control" name="tag" id="" value="" >
+                    <select class="form-control" name="atmosphere" id="" value="" >
+                        <option value="0">Very active</option>
+                        <option value="1">Acceptable</option>
+                        <option value="2">Could imporove</option>
+                    </select>
                 </div>
             </div>
             <button type="submit" class="login-button">Save</button>

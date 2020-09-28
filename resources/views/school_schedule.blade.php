@@ -96,7 +96,7 @@
     </script>
     <div class="table-title">
             SCHOOL SCHEDULE
-            <a href="{{URL::to('add_schoolschedule')}}"><span onclick="openPage('')" class="fs1 btn-right" aria-hidden="true" data-icon="l"></span></a>
+            <a href="{{URL::to('add-schoolschedule')}}"><span onclick="openPage('')" class="fs1 btn-right" aria-hidden="true" data-icon="l"></span></a>
     </div>
     <div style="width:100%;">
         <table id="schedule-table" class="table table-striped table-bordered table-striped" style="width:100%;">
@@ -138,15 +138,15 @@
                                 @if($value->status == 0 )
                                     <input type="checkbox" checked/>
                                 @else
-                                    <input type="checkbox"/>  
+                                    <input type="checkbox"/>
                                 @endif
                         </td>
                         <td>
-                            <div class=""> 	
-                                <a href="edit_schoolschedule/{{$value->id}}"><span class="fs1" aria-hidden="true" data-icon="j"></span></a>
-                                <a href="delete_schoolschedule/{{$value->id}}"><span class="fs1" aria-hidden="true" data-icon=""></span></a>
+                            <div class="">
+                                <a href="edit-schoolschedule/{{$value->id}}"><span class="fs1" aria-hidden="true" data-icon="j"></span></a>
+                                <a href="delete-schoolschedule/{{$value->id}}"><span class="fs1" aria-hidden="true" data-icon=""></span></a>
                                 <span class="fs1" aria-hidden="true" data-icon="b"></span>
-                            </div>   
+                            </div>
                         </td>
                     </tr>
                 @endforeach

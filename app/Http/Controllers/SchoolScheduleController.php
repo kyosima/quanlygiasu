@@ -54,7 +54,7 @@ class SchoolScheduleController extends Controller
 
         DB::table('schoolschedule')->insert(['tag'=>$tag, 'date'=>$date, 'from'=>$from, 'to'=>$to, 'school'=>$school,  'class'=>$class, 'course'=>$course, 'book'=>$book,  'room'=>$room, 'teacher'=>$teacher, 'teacher_assistant'=>$teacher_assistant, 'note_teacher'=>$note_teacher, 'note_school'=>$note_school, 'status'=>$status]);
         return redirect('/add_schoolschedule');
-    
+
     }
 
     public function edit_schoolschedule(Request $request){
@@ -88,7 +88,7 @@ class SchoolScheduleController extends Controller
         $book = DB::table('course')->where('course', $course)->value('resourse');
         DB::table('schoolschedule')->where('id', $request->route('id'))->update(['tag'=>$tag, 'date'=>$date, 'from'=>$from, 'to'=>$to, 'school'=>$school,  'class'=>$class, 'course'=>$course, 'book'=>$book, 'room'=>$room, 'teacher'=>$teacher, 'teacher_assistant'=>$teacher_assistant, 'note_teacher'=>$note_teacher, 'note_school'=>$note_school, 'status'=>$status]);
         return redirect('/edit_schoolschedule/'.$request->route('id'));
-    
+
     }
     public function delete_schoolschedule(Request $request){
         DB::table('schoolschedule')->where('id', $request->route('id'))->delete();

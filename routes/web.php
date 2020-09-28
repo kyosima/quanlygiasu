@@ -22,15 +22,15 @@ Route::get('/logout', 'HomeController@logout');
 //SchoolShedule
 Route::get('/school_schedule', 'SchoolScheduleController@school_schedule');
 
-Route::get('/add_schoolschedule', 'SchoolScheduleController@add_schoolschedule');
+Route::get('/add-schoolschedule', 'SchoolScheduleController@add_schoolschedule');
 
-Route::post('/add_schoolschedule', 'SchoolScheduleController@postadd_schoolschedule');
+Route::post('/add-schoolschedule', 'SchoolScheduleController@postadd_schoolschedule');
 
-Route::get('/edit_schoolschedule/{id}', 'SchoolScheduleController@edit_schoolschedule');
+Route::get('/edit-schoolschedule/{id}', 'SchoolScheduleController@edit_schoolschedule');
 
-Route::post('/edit_schoolschedule/{id}', 'SchoolScheduleController@postedit_schoolschedule');
+Route::post('/edit-schoolschedule/{id}', 'SchoolScheduleController@postedit_schoolschedule');
 
-Route::get('/delete_schoolschedule/{id}', 'SchoolScheduleController@delete_schoolschedule');
+Route::get('/delete-schoolschedule/{id}', 'SchoolScheduleController@delete_schoolschedule');
 
 //course
 
@@ -69,8 +69,14 @@ Route::post('/addschool', 'SchoolController@postaddschool');
 //evaluation
 
 Route::get('/evaluation', 'EvaluationController@evaluation');
-Route::get('/add_evaluation', 'EvaluationController@add_evaluation');
 
+Route::get('/add-evaluation', 'EvaluationController@add_evaluation');
+
+Route::post('/add-evaluation', 'EvaluationController@postadd_evaluation');
+
+Route::get('/edit-evaluation/{id}', 'EvaluationController@edit_evaluation');
+
+Route::post('/edit-evaluation/{id}', 'EvaluationController@postedit_evaluation');
 
 //Teacher
 Route::get('/teacher', 'TeacherController@teacher');
