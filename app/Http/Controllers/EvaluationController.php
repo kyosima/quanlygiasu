@@ -65,4 +65,23 @@ class EvaluationController extends Controller
         }
     }
 
+    public function postedit_evaluation(Request $request){
+        $username = $request->input('username');
+        $date = $request->input('date');
+        $teacher = $request->input('teacher');
+        $time = $request->input('time');
+        $school = $request->input('school');
+        $class = $request->input('class');
+        $attire = $request->input('attire');
+        $description = $request->input('description');
+        $punctuality = $request->input('punctuality');
+        $assignlessions = $request->input('assignlessions');
+        $teachingpreparation = $request->input('teachingpreparation');
+        $friendliness = $request->input('friendliness');
+        $funactivities = $request->input('funactivities');
+        $atmosphere = $request->input('atmosphere');
+        DB::table('evaluation')->where('id', $request->route('id'))->update(['username'=>$username, 'date'=>$date, 'teacher'=>$teacher, 'time'=>$time, 'school'=>$school,  'class'=>$class, 'attire'=>$attire, 'description'=>$description, 'punctuality'=>$punctuality, 'assignlessions'=>$assignlessions, 'teachingpreparation'=>$teachingpreparation, 'friendliness'=>$friendliness, 'funactivities'=>$funactivities, 'atmosphere'=>$atmosphere]);
+        return redirect('/edit-evaluation/'.$request->route('id'));
+    }
+
 }
