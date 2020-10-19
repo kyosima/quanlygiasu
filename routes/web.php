@@ -20,7 +20,7 @@ Route::post('/', 'HomeController@postlogin');
 Route::get('/logout', 'HomeController@logout');
 
 //SchoolShedule
-Route::get('/school_schedule', 'SchoolScheduleController@school_schedule');
+Route::get('/school-schedule', 'SchoolScheduleController@school_schedule');
 
 Route::get('/add-schoolschedule', 'SchoolScheduleController@add_schoolschedule');
 

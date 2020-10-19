@@ -14,7 +14,7 @@ class HomeController extends Controller
     //
     public function login(Request $request){
         if ($request->session()->has('username')) {
-            return redirect('/school_schedule');
+            return redirect('/school-schedule');
         }
         else{
             return view('login');
@@ -28,7 +28,7 @@ class HomeController extends Controller
 
         if($result){
             $request->session()->put('username', $result->username);
-            return Redirect('/school_schedule');
+            return Redirect('/school-schedule');
         }
         else{
             $request->session()->put('messenger', 'Wrong username or password!');

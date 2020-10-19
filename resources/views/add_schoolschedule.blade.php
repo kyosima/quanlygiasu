@@ -4,7 +4,7 @@
     <div class="" style="padding: 5px 0px;">
 
     </div>
-    <div class="table table-left">
+    <div class="table">
         <div class="table-title">
             <span onclick="window.history.back()" class="fs1 btn-left" aria-hidden="true" data-icon="J"></span>
             add school shedule
@@ -36,10 +36,10 @@
                     </div>
                 </div>
                 <script>
-                 	
-				
+
+
                         var from = $('#time-from');
-                        from.change(function(){		
+                        from.change(function(){
                             var time = from.val();
                             var hours = parseInt(time.split(":")[0]);
                             var minutes = parseInt(time.split(":")[1]);
@@ -51,7 +51,7 @@
                                     var m = "0" + minutes.toString();
                                 }else{
                                     var m =  minutes.toString();
-                                }     
+                                }
                             }else{
                                 var m =  minutes.toString();
                             }
@@ -61,10 +61,10 @@
                                     var h =  hours.toString();
                                 }
 
-                            
+
                             var timeto = h + ":" + m;
                             document.getElementById("time-to").value = timeto;
-                            
+
                         });
 
                         </script>
@@ -154,114 +154,6 @@
         </div>
     </div>
 
-    <div class="table table-right">
-        <div class="table-title">Tool</div>
-        <div class="table-body">
-            <div class="item-info box-sperator sp1-3">
-                <div class="item-title">
-                    <span class="title-name" id="title-Ta_id"> &nbsp;</span>
-                </div>
-                <div class="item-content " style="text-align: center;">
-                    <button type="button" class="btn btn-default" onclick="dataClone()">Clone</button>
-                </div>
-            </div>
-            <div class="item-info box-sperator sp1-3">
-                <div class="item-title">
-                    <span class="title-name" id="title">&nbsp;</span>
-                </div>
-                <div class="item-content " style="text-align: center;">
-                    <button type="button" class="btn btn-default" onclick="dataApply()">Apply</button>
-                </div>
-            </div>
-            <div class="item-info box-sperator sp1-3">
-                <div class="item-title">
-                    <span class="title-name" id="title">&nbsp;</span>
-                </div>
-                <div class="item-content " style="text-align: center;">
-                    <button type="button" class="btn btn-default" onclick="doPush()">Push</button>
-                </div>
-            </div>
-            <div class="item-info box-sperator sp1-3">
-                <div class="item-title">
-                    <span class="title-name" id="title-Loop">Loop number</span>
-                </div>
-                <div class="item-content">
-                    <input id="loopNum" value="1" type="text" class="form-control">
-                </div>
-            </div>
-            <div class="item-info box-sperator sp1-3">
-                <div class="item-title">
-                    <span class="title-name" id="title-Loop">Add day</span>
-                </div>
-                <div class="item-content">
-                    <input id="addDay" value="7" type="text" class="form-control">
-                </div>
-            </div>
-            <div class="item-info box-sperator sp1-3">
-                <div class="item-title">
-                    <span class="title-name" id="title-Loop">&nbsp;</span>
-                </div>
-                <div class="item-content" style="text-align: center;">
-                    <button onclick="dataLoop()" type="button" class="btn btn-default">Loop</button>
-                </div>
-            </div>
-
-            <div class="item-info box-sperator sp1-3">
-                <div class="item-title">
-                    <span class="title-name" id="title-Loop">Number of Week</span>
-                </div>
-                <div class="item-content">
-                    <input id="weekNum" value="1" type="text" class="form-control">
-                </div>
-            </div>
-            <div class="item-info box-sperator sp1-3">
-                <div class="item-title">
-                    <span class="title-name" id="title-Loop">Day Start</span>
-                </div>
-                <div class="item-content">
-                    <input id="startDay" type="text" placeholder="Choose the start week" class="form-control">
-                    <script type="text/javascript">
-                        $(function() {
-                            $('#startDay').datepicker(PICK_DATE_OPT);
-                        });
-                    </script>
-                </div>
-            </div>
-            <div class="item-info box-sperator sp1-3">
-                <div class="item-title">
-                    <span class="title-name" id="title-Loop">&nbsp;</span>
-                </div>
-                <div class="item-content" style="text-align: center;">
-                    <button onclick="weekLoop()" type="button" class="btn btn-default">Week Loop</button>
-                </div>
-            </div>
-
-            <div class="item-info box-sperator sp1-3">
-                <div class="item-title">
-                    <span class="title-name" id="title-Ta_id">&nbsp;</span>
-                </div>
-                <div class="item-content " style="text-align: center;">
-                    <button type="button" class="btn btn-default" onclick="dataDirection('back')">&lt; &lt;</button>
-                </div>
-            </div>
-            <div class="item-info box-sperator sp1-3">
-                <div class="item-title">
-                    <span class="title-name" id="title-Ta_id">&nbsp;</span>
-                </div>
-                <div class="item-content " style="text-align: center;">
-
-                </div>
-            </div>
-            <div class="item-info box-sperator sp1-3">
-                <div class="item-title">
-                    <span class="title-name" id="title-Ta_id">&nbsp;</span>
-                </div>
-                <div class="item-content " style="text-align: center;">
-                    <button type="submit" class="btn btn-default" onclick="dataDirection('next')">&gt; &gt;</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 

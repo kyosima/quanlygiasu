@@ -98,7 +98,7 @@
             SCHOOL SCHEDULE
             <a href="{{URL::to('add-schoolschedule')}}"><span onclick="openPage('')" class="fs1 btn-right" aria-hidden="true" data-icon="l"></span></a>
     </div>
-    <div style="width:100%;">
+
         <table id="schedule-table" class="table table-striped table-bordered table-striped" style="width:100%;">
             <thead>
                 <tr>
@@ -152,6 +152,5 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
 </div>
 @endsection

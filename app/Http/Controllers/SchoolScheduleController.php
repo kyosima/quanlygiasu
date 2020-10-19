@@ -53,7 +53,7 @@ class SchoolScheduleController extends Controller
         $book = DB::table('course')->where('course', $course)->value('resource');
 
         DB::table('schoolschedule')->insert(['tag'=>$tag, 'date'=>$date, 'from'=>$from, 'to'=>$to, 'school'=>$school,  'class'=>$class, 'course'=>$course, 'book'=>$book,  'room'=>$room, 'teacher'=>$teacher, 'teacher_assistant'=>$teacher_assistant, 'note_teacher'=>$note_teacher, 'note_school'=>$note_school, 'status'=>$status]);
-        return redirect('/add_schoolschedule');
+        return redirect('/school-schedule');
 
     }
 
