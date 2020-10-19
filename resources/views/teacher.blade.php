@@ -9,6 +9,17 @@
     </div>
     <script>
         $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+} );
+        $(document).ready(function() {
             var table = $('#teacher-table').DataTable({
                 "order": [[ 1, "desc" ]],
                 "oLanguage": {
@@ -49,7 +60,7 @@
         </div>
     </div>
     <div style="width:100%;">
-        <table id="teacher-table" class="table table-striped table-bordered table-striped" style="width:100%;">
+        <table id="teacher-table" class="table table-striped table-bordered table-striped dí" style="width:100%;">
             <thead>
                 <tr>
                     <th class="th-fill">Fullname</th>

@@ -83,7 +83,7 @@
             <div class="right">
                 <span onclick="viewPage(1, true)" class="fs1 btn-right" style="color: #0080FF" aria-hidden="true" data-icon="U"></span>
                 <span onclick="javascript:CallPrint('mainList');" style="color: #0080FF" class="fs1 btn-right" aria-hidden="true" data-icon=""></span>
-                                        <span onclick="download()" class="fs1 btn-right" style="color: #4caf50" aria-hidden="true" data-icon=""></span>
+                                        <span id="btnExport" onclick="download()" class="fs1 btn-right" style="color: #4caf50" aria-hidden="true" data-icon=""></span>
             </div>
         </div>
     </div>
@@ -91,7 +91,17 @@
         $(document).ready(function() {
             var table = $('#schedule-table').DataTable({
             });
+
+
+
+            $("#btnExport").click(function (e) {
+    window.open('data:application/vnd.ms-excel,' + $('#schedule-table').html());
+    e.preventDefault();
+});
         });
+
+
+
 
     </script>
     <div class="table-title">
@@ -99,7 +109,9 @@
             <a href="{{URL::to('add-schoolschedule')}}"><span onclick="openPage('')" class="fs1 btn-right" aria-hidden="true" data-icon="l"></span></a>
     </div>
 
-        <table id="schedule-table" class="table table-striped table-bordered table-striped" style="width:100%;">
+<br/>
+<br/>
+        <table id="schedule-table" class="table table-striped table-bordered table-striped display" style="width:100%;">
             <thead>
                 <tr>
                     <th><input type="checkbox"/></th>
