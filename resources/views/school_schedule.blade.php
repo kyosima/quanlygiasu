@@ -1,13 +1,11 @@
 @extends('layout')
 @section('content')
-<<<<<<< HEAD
 <style>
     .cancel_schedule{
         background: #ffabab !important;
     }
 </style>
 <div>
-=======
     <div class="search-area">
         <div class="search-row">
             <div class="search-date">
@@ -95,7 +93,6 @@
             </div>
         </div>
     </div>
->>>>>>> e37f32f5581f9eb3f32540d37951b21ba7665f1e
     <script>
         $(document).ready(function() {
             $('#schedule-table').DataTable({
@@ -125,6 +122,9 @@
 <br/>
 <br/>
         <table id="schedule-table" class="table table-striped table-bordered table-striped display" style="width:100%;">
+<<<<<<< HEAD
+>>>>>>> e37f32f5581f9eb3f32540d37951b21ba7665f1e
+=======
 >>>>>>> e37f32f5581f9eb3f32540d37951b21ba7665f1e
             <thead>
                 <tr>
