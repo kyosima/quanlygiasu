@@ -162,7 +162,72 @@
         </div>
     </div>
 
+<<<<<<< HEAD
+    <div class="table table-right">
+        <div class="table-title">Tool</div>
+        <div class="table-body">
+            
+            <div class="item-info box-sperator sp1-3">
+                <div class="item-title">
+                    <span class="title-name" id="title-Loop">Loop number</span>
+                </div>
+                <div class="item-content">
+                    <input id="loopNum" value="1" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="item-info box-sperator sp1-3">
+                <div class="item-title">
+                    <span class="title-name" id="title-Loop">Add day</span>
+                </div>
+                <div class="item-content">
+                    <input id="addDay" value="7" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="item-info box-sperator sp1-3">
+                <div class="item-title">
+                    <span class="title-name" id="title-Loop">&nbsp;</span>
+                </div>
+                <div class="item-content" style="text-align: center;">
+                    <button onclick="dataLoop()" type="button" class="btn btn-default">Loop</button>
+                </div>
+            </div>
 
+            <div class="item-info box-sperator sp1-3">
+                <div class="item-title">
+                    <span class="title-name" id="title-Loop">Number of Week</span>
+                </div>
+                <div class="item-content">
+                    <input id="weekNum" value="1" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="item-info box-sperator sp1-3">
+                <div class="item-title">
+                    <span class="title-name" id="title-Loop">Day Start</span>
+                </div>
+                <div class="item-content">
+                    <input id="startDay" type="text" placeholder="Choose the start week" class="form-control">
+                    <script type="text/javascript">
+                        $(function() {
+                            $('#startDay').datepicker(PICK_DATE_OPT);
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="item-info box-sperator sp1-3">
+                <div class="item-title">
+                    <span class="title-name" id="title-Loop">&nbsp;</span>
+                </div>
+                <div class="item-content" style="text-align: center;">
+                    <button onclick="weekLoop()" type="button" class="btn btn-default">Week Loop</button>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+=======
+
+>>>>>>> e37f32f5581f9eb3f32540d37951b21ba7665f1e
 
 
 

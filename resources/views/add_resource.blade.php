@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 <label for="">Upload</label>
-                <input type="file" name="upload" id="" />
+                <input type="file" name="file" id="" />
             </div>
 
             <div class="form-group">

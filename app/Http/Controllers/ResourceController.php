@@ -33,7 +33,20 @@ class ResourceController extends Controller
         $type = $request->input('type');
         $link = $request->input('link');
         $note = $request->input('note');
+        $file = $request->file('file');
+        if($file != null){
+            $request->validate([
+                'file' => 'required|file|mimes:jpg,png,csv',
+            ]);
+            $fileName = time().'.'.$request->file->extension();  
+            $request->file->move(public_path('uploads'), $fileName);
+            DB::table('resource')->insert(['name' => $name, 'type' => $type, 'link' => $link,'upload' => $fileName, 'note' => $note]);
+
+        }
+        
         DB::table('resource')->insert(['name' => $name, 'type' => $type, 'link' => $link, 'note' => $note]);
+
+        
         return back();
     }
 

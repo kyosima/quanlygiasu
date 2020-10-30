@@ -6,7 +6,7 @@
     <div class="table-title">
         course list
     <a href="{{URL::to('addcourse')}}"><span onclick="openPage('')" class="fs1 btn-right" aria-hidden="true" data-icon="l"></span></a>
-    </div>
+    </div> 
     <script>
         $(document).ready(function() {
             var table = $('#course-table').DataTable({

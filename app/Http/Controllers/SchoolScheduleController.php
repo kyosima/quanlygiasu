@@ -85,14 +85,24 @@ class SchoolScheduleController extends Controller
         $note_teacher = $request->input('note_teacher');
         $note_school = $request->input('note_school');
         $status = $request->input('status');
-        $book = DB::table('course')->where('course', $course)->value('resourse');
+        $book = DB::table('course')->where('course', $course)->value('resource');
         DB::table('schoolschedule')->where('id', $request->route('id'))->update(['tag'=>$tag, 'date'=>$date, 'from'=>$from, 'to'=>$to, 'school'=>$school,  'class'=>$class, 'course'=>$course, 'book'=>$book, 'room'=>$room, 'teacher'=>$teacher, 'teacher_assistant'=>$teacher_assistant, 'note_teacher'=>$note_teacher, 'note_school'=>$note_school, 'status'=>$status]);
-        return redirect('/edit_schoolschedule/'.$request->route('id'));
+        return redirect('/school-schedule');
 
     }
     public function delete_schoolschedule(Request $request){
         DB::table('schoolschedule')->where('id', $request->route('id'))->delete();
         return back();
+    }
+
+    public function changestt(Request $request){
+        $id_schoolschedule = $request->route('id');
+        $schoolschedule = DB::table('schoolschedule')->where('id', $id_schoolschedule)->first();
+        if($schoolschedule->status == 0){
+            DB::table('schoolschedule')->where('id', $id_schoolschedule)->update(['status' => 1]);
+        }else{
+            DB::table('schoolschedule')->where('id', $id_schoolschedule)->update(['status' => 0]);
+        }
     }
 
 }

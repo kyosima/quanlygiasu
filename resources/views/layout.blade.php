@@ -24,9 +24,28 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 <script src="https://cdn.datatables.net/searchpanes/1.1.1/js/dataTables.searchPanes.min.js">
 <script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js">
+<script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js">
+<script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
+
 <script>
     $(document).ready(function() {
     $('#example').DataTable();
+} );
+
+$(document).ready(function() {
+    $('#schedule-table').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
 } );
 </script>
 <style>
@@ -187,7 +206,7 @@
             <div class="circleBase header-button-cir" title="" data-toggle="tooltip" data-placement="left" data-original-title="School">
         <div class="fs1" aria-hidden="true" data-icon=""></div>
         <div id="menu-system" class="menu">
-            <a href="{{URL::to('school_schedule')}}">
+            <a href="{{URL::to('school-schedule')}}">
                 <div class="menu-item">
                     <div class="fs1" aria-hidden="true" data-icon=""></div>
                     <div class="item-text">Schedule</div>

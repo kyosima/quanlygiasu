@@ -7,6 +7,9 @@
 	margin-top: 3px;
 	margin-bottom: 5px;
 }
+.cancel_schedule{
+	background: #ffabab;
+}
 .search-date {
 	width: 50%;
 	float: left;

@@ -20,6 +20,11 @@ Route::post('/', 'HomeController@postlogin');
 Route::get('/logout', 'HomeController@logout');
 
 //SchoolShedule
+<<<<<<< HEAD
+Route::get('/school-schedule/changestt/{id}', 'SchoolScheduleController@changestt');
+
+=======
+>>>>>>> e37f32f5581f9eb3f32540d37951b21ba7665f1e
 Route::get('/school-schedule', 'SchoolScheduleController@school_schedule');
 
 Route::get('/add-schoolschedule', 'SchoolScheduleController@add_schoolschedule');

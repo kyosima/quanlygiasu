@@ -1,5 +1,13 @@
 @extends('layout')
 @section('content')
+<<<<<<< HEAD
+<style>
+    .cancel_schedule{
+        background: #ffabab !important;
+    }
+</style>
+<div>
+=======
     <div class="search-area">
         <div class="search-row">
             <div class="search-date">
@@ -83,26 +91,44 @@
             <div class="right">
                 <span onclick="viewPage(1, true)" class="fs1 btn-right" style="color: #0080FF" aria-hidden="true" data-icon="U"></span>
                 <span onclick="javascript:CallPrint('mainList');" style="color: #0080FF" class="fs1 btn-right" aria-hidden="true" data-icon=""></span>
-                                        <span onclick="download()" class="fs1 btn-right" style="color: #4caf50" aria-hidden="true" data-icon=""></span>
+                                        <span id="btnExport" onclick="download()" class="fs1 btn-right" style="color: #4caf50" aria-hidden="true" data-icon=""></span>
             </div>
         </div>
     </div>
+>>>>>>> e37f32f5581f9eb3f32540d37951b21ba7665f1e
     <script>
         $(document).ready(function() {
-            var table = $('#schedule-table').DataTable({
+            $('#schedule-table').DataTable({
             });
+
+
+
+            $("#btnExport").click(function (e) {
+    window.open('data:application/vnd.ms-excel,' + $('#schedule-table').html());
+    e.preventDefault();
+});
         });
+
+
+
 
     </script>
     <div class="table-title">
             SCHOOL SCHEDULE
-            <a href="{{URL::to('add-schoolschedule')}}"><span onclick="openPage('')" class="fs1 btn-right" aria-hidden="true" data-icon="l"></span></a>
+            <a href="{{URL::to('add-schoolschedule')}}"><span class="fs1 btn-right" aria-hidden="true" data-icon="l"></span></a>
     </div>
+<<<<<<< HEAD
+    <div>
+        <table id="schedule-table" class="table table-striped table-bordered table-striped" >
+=======
 
-        <table id="schedule-table" class="table table-striped table-bordered table-striped" style="width:100%;">
+<br/>
+<br/>
+        <table id="schedule-table" class="table table-striped table-bordered table-striped display" style="width:100%;">
+>>>>>>> e37f32f5581f9eb3f32540d37951b21ba7665f1e
             <thead>
                 <tr>
-                    <th><input type="checkbox"/></th>
+                    <th></th>
                     <th>Date</th>
                     <th>School</th>
                     <th>From</th>
@@ -121,7 +147,11 @@
             </thead>
             <tbody>
                 @foreach ($schoolschedule as $value)
-                    <tr>
+                    @if($value->status == 0)
+                        <tr class="cancel_schedule" id="row{{$value->id}}">
+                    @else
+                        <tr class="" id="row{{$value->id}}">
+                    @endif
                         <td class="text-center schedule-check"><input type="checkbox"/></td>
                         <td>{{date("d/m/Y",strtotime($value->date)) }}</td>
                         <td>{{$value->school}}</td>
@@ -136,9 +166,9 @@
                         <td>{{$value->note_school}}</td>
                         <td class="text-center schedule-status">
                                 @if($value->status == 0 )
-                                    <input type="checkbox" checked/>
+                                    <input id="cancel_sch{{$value->id}}" value="{{$value->id}}"  onclick="changestatus(this.value)" type="checkbox" checked/>
                                 @else
-                                    <input type="checkbox"/>
+                                    <input id="cancel_sch{{$value->id}}" value="{{$value->id}}" onclick="changestatus(this.value)" type="checkbox"/>
                                 @endif
                         </td>
                         <td>
@@ -152,5 +182,30 @@
                 @endforeach
             </tbody>
         </table>
+<<<<<<< HEAD
+        <script>
+            function changestatus(id){
+                $.ajax({
+                    url: '<?php echo url()->current(); ?>/changestt/'+id,
+                    type: 'get',
+                    data: {id:id}, // serializes the form's elements.
+                    
+                    success: function(data)
+                    {
+                        if ($('#cancel_sch'+id).prop('checked')) {
+                            $( "#row"+id ).addClass("cancel_schedule");
+                        }else{
+                            $( "#row"+id ).removeClass("cancel_schedule");
+                        }
+
+                    }
+                });
+            }
+                
+        </script>
+
+    </div>
+=======
+>>>>>>> e37f32f5581f9eb3f32540d37951b21ba7665f1e
 </div>
 @endsection

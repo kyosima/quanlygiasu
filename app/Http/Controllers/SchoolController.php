@@ -18,7 +18,7 @@ class SchoolController extends Controller
 
         if ($request->session()->has('username')){
             $username = $request->session()->get('username');
-            $course = DB::table('Course')->get();
+            $course = DB::table('course')->get();
             return view('course',['course' => $course]);
         }
         else{
@@ -29,7 +29,7 @@ class SchoolController extends Controller
     public function editcourse(Request $request){
         if ($request->session()->has('username')){
             $id = $request->route('id');
-            $result = DB::table('Course')->where('id',$id)->first();
+            $result = DB::table('course')->where('id',$id)->first();
             return view('course_edit',['result'=>$result]);
         }
         else{
@@ -43,7 +43,7 @@ class SchoolController extends Controller
         $resource = $request->input('Resource');
         $unit = $request->input('Unit');
         $duration = $request->input('Duration');
-        DB::table('Course')->where('id',$id)->update(['course'=>$courseName, 'resource'=>$resource, 'unit'=>$unit, 'duration'=>$duration ]);
+        DB::table('course')->where('id',$id)->update(['course'=>$courseName, 'resource'=>$resource, 'unit'=>$unit, 'duration'=>$duration ]);
         return Redirect('/course');
     }
     //add course
@@ -61,20 +61,20 @@ class SchoolController extends Controller
         $resource = $request ->input('Resource');
         $unit = $request->input('Unit');
         $duration = $request->input('Duration');
-        DB::table('Course')->insert(['course'=>$courseName,'resource'=>$resource, 'unit'=>$unit, 'duration'=>$duration]);
+        DB::table('course')->insert(['course'=>$courseName,'resource'=>$resource, 'unit'=>$unit, 'duration'=>$duration]);
         return Redirect('/course');
     }
     //delete course
     public function deletecourse(Request $request){
         $id = $request->route('id');
-        DB::table('Course')->where('id',$id)->delete();
+        DB::table('course')->where('id',$id)->delete();
         return redirect('/course');
     }
 
     //School
     public function school(Request $request){
         if ($request->session()->has('username')){
-            $school = DB::table('School_list')->get();
+            $school = DB::table('school_list')->get();
             return view('school',['school'=>$school]);
         }
         else{
@@ -85,7 +85,7 @@ class SchoolController extends Controller
     public function editschool(Request $request){
         $id = $request->route('id');
         if ($request->session()->has('username')){
-            $school = DB::table('School_list')->where('id',$id)->first();
+            $school = DB::table('school_list')->where('id',$id)->first();
             $user = DB::table('users')->get();
             $schooltype = DB::table('schooltype')->get();
             $district = DB::table('district')->get();
@@ -106,13 +106,13 @@ class SchoolController extends Controller
         $follow = $request->input('Followup');
         $intro = $request->input('intro');
         $status = $request->input('status');
-        DB::table('School_list')->where('id',$id)->update(['name'=>$name, 'prodate'=>$prodate, 'staffname'=>$staff, 'schooltype'=>$schooltype, 'district'=>$district ,'followup'=> $follow, 'intro'=>$intro, 'status'=>$status]);
+        DB::table('school_list')->where('id',$id)->update(['name'=>$name, 'prodate'=>$prodate, 'staffname'=>$staff, 'schooltype'=>$schooltype, 'district'=>$district ,'followup'=> $follow, 'intro'=>$intro, 'status'=>$status]);
         return redirect('/school');
     }
 
     public function deleteschool(Request $request){
         $id = $request->route('id');
-        DB::table('School_list')->where('id',$id)->delete();
+        DB::table('school_list')->where('id',$id)->delete();
         return redirect('/school');
     }
 
@@ -136,7 +136,7 @@ class SchoolController extends Controller
         $follow = $request->input('Followup');
         $intro = $request->input('intro');
         $status = $request->input('status');
-        DB::table('School_list')->insert(['name'=>$name, 'prodate'=>$prodate, 'staffname'=>$staff, 'schooltype'=>$schooltype, 'district'=>$district ,'followup'=> $follow, 'intro'=>$intro, 'status'=>$status]);
+        DB::table('school_list')->insert(['name'=>$name, 'prodate'=>$prodate, 'staffname'=>$staff, 'schooltype'=>$schooltype, 'district'=>$district ,'followup'=> $follow, 'intro'=>$intro, 'status'=>$status]);
         return redirect('/school');
     }
 
